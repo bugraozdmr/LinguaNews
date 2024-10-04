@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinguaNews", "LinguaNews\LinguaNews.csproj", "{DED35EA3-AA5D-454A-BB28-D19B485FE18A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DED35EA3-AA5D-454A-BB28-D19B485FE18A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DED35EA3-AA5D-454A-BB28-D19B485FE18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DED35EA3-AA5D-454A-BB28-D19B485FE18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DED35EA3-AA5D-454A-BB28-D19B485FE18A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
