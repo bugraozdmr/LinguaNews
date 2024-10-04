@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LinguaNews")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cadfc765994d309ab41e4ca0c629b3818fd74600")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e529a4124b24475f28df52645cf69c33711d00d")]
 [assembly: System.Reflection.AssemblyProductAttribute("LinguaNews")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LinguaNews")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
