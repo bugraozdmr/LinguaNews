@@ -1,6 +1,0 @@
-@LinguaNews_HostAddress = http://localhost:5102
-
-GET {{LinguaNews_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

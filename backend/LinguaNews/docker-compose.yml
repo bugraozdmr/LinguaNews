@@ -1,7 +1,6 @@
 ﻿services:
-  linguanews:
-    image: linguanews
-    container_name: linguanews.api
+  linguanews.api:
+    image: linguanews.api
     build:
       context: .
-      dockerfile: LinguaNews/Dockerfile
+      dockerfile: LinguaNews.Api/Dockerfile

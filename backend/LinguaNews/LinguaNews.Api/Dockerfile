@@ -7,17 +7,17 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["LinguaNews/LinguaNews.csproj", "LinguaNews/"]
-RUN dotnet restore "LinguaNews/LinguaNews.csproj"
+COPY ["LinguaNews.Api/LinguaNews.Api.csproj", "LinguaNews.Api/"]
+RUN dotnet restore "LinguaNews.Api/LinguaNews.Api.csproj"
 COPY . .
-WORKDIR "/src/LinguaNews"
-RUN dotnet build "LinguaNews.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/LinguaNews.Api"
+RUN dotnet build "LinguaNews.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "LinguaNews.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "LinguaNews.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "LinguaNews.dll"]
+ENTRYPOINT ["dotnet", "LinguaNews.Api.dll"]

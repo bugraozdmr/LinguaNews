@@ -1,8 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinguaNews", "LinguaNews\LinguaNews.csproj", "{DED35EA3-AA5D-454A-BB28-D19B485FE18A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinguaNews.Api", "LinguaNews.Api\LinguaNews.Api.csproj", "{9784D029-5E4D-4572-AD70-A5D2667058F6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{53596DE0-D2E3-424B-BFA5-4BD183A17A7A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinguaNews.Application", "LinguaNews.Application\LinguaNews.Application.csproj", "{E1AC498B-7A3E-45A8-BA39-6075DA672B22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinguaNews.Infrastructure", "LinguaNews.Infrastructure\LinguaNews.Infrastructure.csproj", "{60302BC1-8BE1-46B1-9A00-74967BA5AE1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinguaNews.Domain", "LinguaNews.Domain\LinguaNews.Domain.csproj", "{00FB8B37-DE8D-45D1-8F70-002AEA6BD63E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ECE2BE9E-1CBE-4271-B426-B4FA3B4193F5}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
@@ -13,9 +19,21 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DED35EA3-AA5D-454A-BB28-D19B485FE18A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DED35EA3-AA5D-454A-BB28-D19B485FE18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DED35EA3-AA5D-454A-BB28-D19B485FE18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DED35EA3-AA5D-454A-BB28-D19B485FE18A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9784D029-5E4D-4572-AD70-A5D2667058F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9784D029-5E4D-4572-AD70-A5D2667058F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9784D029-5E4D-4572-AD70-A5D2667058F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9784D029-5E4D-4572-AD70-A5D2667058F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1AC498B-7A3E-45A8-BA39-6075DA672B22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1AC498B-7A3E-45A8-BA39-6075DA672B22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1AC498B-7A3E-45A8-BA39-6075DA672B22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1AC498B-7A3E-45A8-BA39-6075DA672B22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60302BC1-8BE1-46B1-9A00-74967BA5AE1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60302BC1-8BE1-46B1-9A00-74967BA5AE1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60302BC1-8BE1-46B1-9A00-74967BA5AE1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60302BC1-8BE1-46B1-9A00-74967BA5AE1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00FB8B37-DE8D-45D1-8F70-002AEA6BD63E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00FB8B37-DE8D-45D1-8F70-002AEA6BD63E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00FB8B37-DE8D-45D1-8F70-002AEA6BD63E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00FB8B37-DE8D-45D1-8F70-002AEA6BD63E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

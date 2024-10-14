@@ -1,15 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
-
-
+// Add Services to the container
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-
-
-// configure the http request pipeline
-
+// Configure the HTTP request pipeline
 
 app.Run();
