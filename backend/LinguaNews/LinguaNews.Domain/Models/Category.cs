@@ -1,4 +1,4 @@
-namespace LinguaNews.Domain.Models.Tables;
+namespace LinguaNews.Domain.Models;
 
 public class Category
 {
