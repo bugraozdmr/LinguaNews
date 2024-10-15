@@ -16,16 +16,16 @@ services:
     volumes:
       - postgres_linguanews:/var/lib/postgresql/data
   
-  
-  #linguanews.api:
-  #  container_name: linguanews.api
-  #  build:
-  #    context: .
-  #    dockerfile: LinguaNews.Api/Dockerfile
-  #  depends_on:
-  #    - newsdb
-  #  ports:
-  #    - "6009:8080"
+  linguanews.api:
+    container_name: linguanews.api
+    build:
+      # context ust dizin dockerfile changed - diger turlu building blocks kopyalanamaz
+      context: ..
+      dockerfile: LinguaNews/LinguaNews.Api/Dockerfile
+    depends_on:
+      - newsdb
+    ports:
+      - "6009:8080"
 
 volumes:
   postgres_linguanews:

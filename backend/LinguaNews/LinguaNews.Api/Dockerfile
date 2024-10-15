@@ -7,14 +7,25 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["LinguaNews.Api/LinguaNews.Api.csproj", "LinguaNews.Api/"]
-COPY ["LinguaNews.Infrastructure/LinguaNews.Infrastructure.csproj", "LinguaNews.Infrastructure/"]
-COPY ["LinguaNews.Domain/LinguaNews.Domain.csproj", "LinguaNews.Domain/"]
-COPY ["LinguaNews.Application/LinguaNews.Application.csproj", "LinguaNews.Application/"]
-COPY ["../BuildingBlocks/BuildingBlocks/BuildingBlocks.csproj", "../BuildingBlocks/BuildingBlocks/"]
-RUN dotnet restore "LinguaNews.Api/LinguaNews.Api.csproj"
-COPY . .
-WORKDIR "/src/LinguaNews.Api"
+
+# Projeleri doğru dizinlere kopyalayın
+COPY ["LinguaNews/LinguaNews.Api/LinguaNews.Api.csproj", "LinguaNews/LinguaNews.Api/"]
+COPY ["LinguaNews/LinguaNews.Infrastructure/LinguaNews.Infrastructure.csproj", "LinguaNews/LinguaNews.Infrastructure/"]
+COPY ["LinguaNews/LinguaNews.Domain/LinguaNews.Domain.csproj", "LinguaNews/LinguaNews.Domain/"]
+COPY ["LinguaNews/LinguaNews.Application/LinguaNews.Application.csproj", "LinguaNews/LinguaNews.Application/"]
+COPY ["BuildingBlocks/BuildingBlocks.csproj", "BuildingBlocks/"]
+
+# Restore işlemi
+RUN dotnet restore "LinguaNews/LinguaNews.Api/LinguaNews.Api.csproj"
+
+# Proje dosyalarını kopyalayın (önceki COPY sadece .csproj dosyalarını kopyalıyordu)
+COPY LinguaNews/ LinguaNews/
+COPY BuildingBlocks/ BuildingBlocks/
+
+# LinguaNews.Api dizinine geçin
+WORKDIR "/src/LinguaNews/LinguaNews.Api"
+
+# Build işlemi
 RUN dotnet build "LinguaNews.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
