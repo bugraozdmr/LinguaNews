@@ -1,6 +1,31 @@
-﻿services:
-  linguanews.api:
-    image: linguanews.api
-    build:
-      context: .
-      dockerfile: LinguaNews.Api/Dockerfile
+﻿version: '3.8'
+
+#sudo docker-compose down -v && sudo docker-compose -p linguanews up --build
+
+services:
+  newsdb:
+    image: postgres
+    container_name: newsdb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: LinguaNewsDb
+    restart: always
+    ports:
+      - "5439:5432"
+    volumes:
+      - postgres_linguanews:/var/lib/postgresql/data
+  
+  
+  #linguanews.api:
+  #  container_name: linguanews.api
+  #  build:
+  #    context: .
+  #    dockerfile: LinguaNews.Api/Dockerfile
+  #  depends_on:
+  #    - newsdb
+  #  ports:
+  #    - "6009:8080"
+
+volumes:
+  postgres_linguanews:

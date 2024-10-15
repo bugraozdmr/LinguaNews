@@ -8,6 +8,10 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["LinguaNews.Api/LinguaNews.Api.csproj", "LinguaNews.Api/"]
+COPY ["LinguaNews.Infrastructure/LinguaNews.Infrastructure.csproj", "LinguaNews.Infrastructure/"]
+COPY ["LinguaNews.Domain/LinguaNews.Domain.csproj", "LinguaNews.Domain/"]
+COPY ["LinguaNews.Application/LinguaNews.Application.csproj", "LinguaNews.Application/"]
+COPY ["../BuildingBlocks/BuildingBlocks/BuildingBlocks.csproj", "../BuildingBlocks/BuildingBlocks/"]
 RUN dotnet restore "LinguaNews.Api/LinguaNews.Api.csproj"
 COPY . .
 WORKDIR "/src/LinguaNews.Api"

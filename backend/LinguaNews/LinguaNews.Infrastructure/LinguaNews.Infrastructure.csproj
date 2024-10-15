@@ -11,4 +11,12 @@
       <Folder Include="Services\" />
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\LinguaNews.Application\LinguaNews.Application.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.8" />
+    </ItemGroup>
+
 </Project>
