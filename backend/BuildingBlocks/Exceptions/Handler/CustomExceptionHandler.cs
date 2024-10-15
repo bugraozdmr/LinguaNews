@@ -25,7 +25,6 @@ public class CustomExceptionHandler : IExceptionHandler
 
         (string Detail, string Title, int StatusCode) details = exception switch
         {
-            // TODO add more exception types such as ...
             BadRequestException => 
             (
                 exception.Message,
@@ -57,6 +56,10 @@ public class CustomExceptionHandler : IExceptionHandler
                 StatusCodes.Status500InternalServerError
             )
         };
+        
+        // bu olmazsa oto 500 atar
+        context.Response.StatusCode = details.StatusCode;
+
         
         var problemDetails = new ProblemDetails
         {

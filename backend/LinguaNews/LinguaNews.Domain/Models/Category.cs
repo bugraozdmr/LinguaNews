@@ -4,9 +4,9 @@ namespace LinguaNews.Domain.Models;
 
 public class Category : Entity<int>
 {
-    public string Name { get; private set; } = default!;
-    public string Description { get; private set; } = default!;
-    public string Image { get; private set; } = default!;
+    public string Name { get; set; } = default!;
+    public string Description { get; set; } = default!;
+    public string Image { get; set; } = default!;
 
     public static Category Create(string name,
          string description, string image)
@@ -24,4 +24,16 @@ public class Category : Entity<int>
 
         return category;
     }
+    
+    /* Gerek yok
+     public void Update(string name,
+        string description, string image)
+    {
+        Name = name;
+        Image = image;
+        Description = description;
+        
+        //AddDomainEvent(new Category(this));
+    }
+    */
 }
