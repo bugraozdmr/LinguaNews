@@ -7,17 +7,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Extensions\" />
       <Folder Include="Repositories\" />
       <Folder Include="Services\" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.8" />
+        <ProjectReference Include="..\LinguaNews.Application\LinguaNews.Application.csproj" />
     </ItemGroup>
-
+    
     <ItemGroup>
-      <ProjectReference Include="..\LinguaNews.Domain\LinguaNews.Domain.csproj" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.8" />
     </ItemGroup>
 
 </Project>
