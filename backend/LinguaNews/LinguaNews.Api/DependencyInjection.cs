@@ -1,4 +1,5 @@
 using BuildingBlocks.Exceptions.Handler;
+using Carter;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
@@ -9,6 +10,8 @@ public static class DependencyInjection
     public static IServiceCollection AddApiServices(this IServiceCollection services
         ,IConfiguration configuration)
     {
+        services.AddCarter();
+        
         services.AddExceptionHandler<CustomExceptionHandler>();
 
         services.AddHealthChecks()
@@ -19,6 +22,8 @@ public static class DependencyInjection
     
     public static WebApplication UseApiServices(this WebApplication app)
     {
+        app.MapCarter();
+        
         app.UseExceptionHandler(options => { });
         
         app.UseHealthChecks("/health",
