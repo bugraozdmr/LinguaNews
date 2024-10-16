@@ -15,13 +15,17 @@ public class News : Aggregate<Guid>
     
     public int CategoryId { get; set; }
     
-    //! public Category Category { get; set; } configurationda kullanıldı zaten buna gerek yok
-    //! (aksi taktirde categoryId1 diye ekstra sutun olusuyor !!)
+    public Category Category { get; set; }
     
     public static News Create(Guid? id, string title, string slug,
         string image, int categoryId,string beginner, 
         string intermediate,string advanced)
     {
+        if (!int.TryParse(categoryId.ToString(), out _))
+        {
+            throw new ArgumentException("CategoryId must be a valid integer.", nameof(categoryId));
+        }
+        
         var news = new News
         {
             Id = id ?? Guid.NewGuid(),
@@ -43,6 +47,11 @@ public class News : Aggregate<Guid>
         string image, int categoryId,string beginner, 
         string intermediate,string advanced)
     {
+        if (!int.TryParse(categoryId.ToString(), out _))
+        {
+            throw new ArgumentException("CategoryId must be a valid integer.", nameof(categoryId));
+        }
+        
         Title = title;
         Slug = slug;
         Image = image;

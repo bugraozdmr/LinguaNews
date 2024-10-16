@@ -1,3 +1,3 @@
 namespace BuildingBlocks.Pagination;
 
-public record PaginationRequest(int pageindex = 0, int pagesize = 10);
+public record PaginationRequest(string? query,int pageindex = 0, int pagesize = 10);

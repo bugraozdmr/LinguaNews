@@ -11,9 +11,12 @@ public class NewsConfiguration : IEntityTypeConfiguration<News>
         builder.HasKey(n => n.Id);
         builder.Property(n => n.Title).IsRequired().HasMaxLength(100);
         builder.Property(n => n.Slug).IsRequired().IsUnicode();
-        builder.HasOne<Category>()
+        
+        /* bunla include yapılamadı
+         builder.HasOne<Category>()
             .WithMany()
             .HasForeignKey(n => n.CategoryId)
             .IsRequired();
+        */
     }
 }

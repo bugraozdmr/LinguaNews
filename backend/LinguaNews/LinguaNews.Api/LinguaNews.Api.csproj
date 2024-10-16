@@ -35,9 +35,4 @@
       </Content>
     </ItemGroup>
 
-
-    <ItemGroup>
-      <Folder Include="Endpoints\News\" />
-    </ItemGroup>
-
 </Project>

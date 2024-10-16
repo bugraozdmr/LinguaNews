@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LinguaNews.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241015132340_InitialCreate")]
+    [Migration("20241016062344_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -108,11 +108,13 @@ namespace LinguaNews.Infrastructure.Migrations
 
             modelBuilder.Entity("LinguaNews.Domain.Models.News", b =>
                 {
-                    b.HasOne("LinguaNews.Domain.Models.Category", null)
+                    b.HasOne("LinguaNews.Domain.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }
