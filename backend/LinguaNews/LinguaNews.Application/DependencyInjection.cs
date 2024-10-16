@@ -1,9 +1,8 @@
 using System.Reflection;
-using BuildingBlocks.Behaviors;
 using FluentValidation;
+using LinguaNews.Application.Behaviors;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.FeatureManagement;
 
 namespace LinguaNews.Application;
 
@@ -22,8 +21,6 @@ public static class DependencyInjection
             config.AddOpenBehavior(typeof(LoggingBehavior<,>));
         });
         
-        // TODO Remove
-        services.AddFeatureManagement();
         
         services.AddValidatorsFromAssembly(assembly);
         

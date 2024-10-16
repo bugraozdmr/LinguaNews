@@ -1,4 +1,4 @@
-namespace BuildingBlocks.Exceptions;
+namespace LinguaNews.Application.Exceptions;
 
 public class BadRequestException : Exception
 {

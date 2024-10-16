@@ -1,4 +1,4 @@
-using BuildingBlocks.CQRS;
+using LinguaNews.Application.CQRS;
 using LinguaNews.Application.Dtos.Responses.News;
 
 namespace LinguaNews.Application.Features.NewsFeature.Queries;

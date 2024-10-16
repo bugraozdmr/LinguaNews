@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "4a277701-b0cc-4cf2-9f4f-dc35f23bca24",
+		"name": "Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30871712"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\":\"Category\",\n    \"Description\":\"Description\",\n    \"Image\":\"CustomImage\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\" : 11,\n    \"Name\":\"Category 1\",\n    \"Description\":\"\",\n    \"Image\":\"Image\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/category/6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/category/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/category/11",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "News",
+			"item": [
+				{
+					"name": "Create News",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Title\" : \"Title\",\n    \"Intermediate\" : \"Intermediate\",\n    \"Beginner\" : \"Beginner\",\n    \"Advanced\" : \"Advanced\",\n    \"Image\" : \"Image\",\n    \"CategoryId\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/news",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update News",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\" : \"254826f7-ccef-4979-b829-1c82f028abbc\",\n    \"Title\" : \"Title 12 buğra\",\n    \"Intermediate\" : \"Intermediate 1\",\n    \"Beginner\" : \"Beginner\",\n    \"Advanced\" : \"Advanced\",\n    \"Image\" : \"Image\",\n    \"CategoryId\" : 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/news",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete News",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/news/93b71e39-c7ce-417c-9b6c-5fc25cec9285",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news",
+								"93b71e39-c7ce-417c-9b6c-5fc25cec9285"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get News By Slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/news/exploring-machine-learning-techniques",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news",
+								"exploring-machine-learning-techniques"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All News",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/news?pageindex=1&pagesize=10&query=Machine",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news"
+							],
+							"query": [
+								{
+									"key": "pageindex",
+									"value": "1"
+								},
+								{
+									"key": "pagesize",
+									"value": "10"
+								},
+								{
+									"key": "query",
+									"value": "Machine"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Healt Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/health",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

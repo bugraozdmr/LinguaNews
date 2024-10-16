@@ -1,6 +1,6 @@
-using BuildingBlocks.Exceptions.Handler;
 using Carter;
 using HealthChecks.UI.Client;
+using LinguaNews.Application.Exceptions.Handler;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 namespace LinguaNews.Api;

@@ -1,9 +1,9 @@
-using BuildingBlocks.CQRS;
 using FluentValidation;
+using LinguaNews.Application.CQRS;
 using MediatR;
 using ValidationException = System.ComponentModel.DataAnnotations.ValidationException;
 
-namespace BuildingBlocks.Behaviors;
+namespace LinguaNews.Application.Behaviors;
 
 public class ValidationBehavior<TRequest, TResponse>
     (IEnumerable<IValidator<TRequest>> validators)

@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace BuildingBlocks.CQRS;
+namespace LinguaNews.Application.CQRS;
 
 // doesnt return response
 public interface ICommand : IRequest<Unit>

@@ -4,7 +4,16 @@
   <br>
 </p>
 
-## Docker-Compose
+### Requirements
+- .NET 8.0 
+- Visual Studio/Rider 
+
+### Devs
+- [Buğra Özdemir](https://github.com/bugraozdmr)
+
+**_Dont forget to run docker before_**
+
+## Docker-Compose For Api and Database
 ```console
 # clone the repo
 $ git clone https://github.com/bugraozdmr/LinguaNews.git
@@ -13,7 +22,10 @@ $ git clone https://github.com/bugraozdmr/LinguaNews.git
 $ cd LinguaNews
 
 # compose up
-$ docker compose -p linguanews up
+$ sudo docker-compose -p linguanews up --build
+
+# or
+$ docker-compose -p linguanews up --build
 ```
 
 ## Dotnet Package Installation
@@ -23,6 +35,11 @@ $ cd backend/LinguaNews
 
 # install packages
 $ dotnet restore
+
+# check the project is working
+$ dotnet build
 ```
+
+## Licence MIT
 
 Thanks for using LinguaNews 🎉

@@ -1,4 +1,4 @@
-namespace BuildingBlocks.Pagination;
+namespace LinguaNews.Application.Pagination;
 
 public class PaginatedResult<TEntity>
     where TEntity : class
