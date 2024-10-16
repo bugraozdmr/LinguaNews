@@ -16,14 +16,18 @@ public class GetAllNewsQueryHandler(IApplicationDbContext dbContext)
         var pageSize = query.PaginationRequest.pagesize < 1 ? 10 : (query.PaginationRequest.pagesize > 10 ? 10 : query.PaginationRequest.pagesize);
 
         var search_param = query.PaginationRequest.query?.ToLower() ?? "";
+        var category_param = query.PaginationRequest.category;
+
         
         var totalCount = await dbContext.News
-            .Where(n => string.IsNullOrWhiteSpace(search_param) || n.Title.ToLower().Contains(search_param))
+            .Where(n => (string.IsNullOrWhiteSpace(search_param) || n.Title.ToLower().Contains(search_param)) &&
+                        (!category_param.HasValue || n.CategoryId == category_param.Value))
             .LongCountAsync(cancellationToken);
         
         var news = await dbContext.News
             .Include(n => n.Category)
-            .Where(n => string.IsNullOrWhiteSpace(search_param) || n.Title.ToLower().Contains(search_param))
+            .Where(n => (string.IsNullOrWhiteSpace(search_param) || n.Title.ToLower().Contains(search_param)) &&
+                        (!category_param.HasValue || n.CategoryId == category_param.Value))
             .OrderBy(n => n.LastModified)
             .Skip(pageIndex * pageSize)
             .Take(pageSize)
