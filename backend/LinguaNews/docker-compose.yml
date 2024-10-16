@@ -19,9 +19,8 @@ services:
   linguanews.api:
     container_name: linguanews.api
     build:
-      # context ust dizin dockerfile changed - diger turlu building blocks kopyalanamaz
-      context: ..
-      dockerfile: LinguaNews/LinguaNews.Api/Dockerfile
+      context: .
+      dockerfile: LinguaNews.Api/Dockerfile
     depends_on:
       - newsdb
     ports:

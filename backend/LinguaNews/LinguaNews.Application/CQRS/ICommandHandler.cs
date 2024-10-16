@@ -1,5 +1,5 @@
 using MediatR;
-namespace BuildingBlocks.CQRS;
+namespace LinguaNews.Application.CQRS;
 
 public interface ICommandHandler<in TCommand>
     : IRequestHandler<TCommand, Unit>

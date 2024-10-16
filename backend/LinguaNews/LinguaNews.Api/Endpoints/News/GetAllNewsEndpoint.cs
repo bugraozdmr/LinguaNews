@@ -1,7 +1,7 @@
-using BuildingBlocks.Pagination;
 using Carter;
 using LinguaNews.Application.Dtos.Responses.News;
 using LinguaNews.Application.Features.NewsFeature.Queries;
+using LinguaNews.Application.Pagination;
 using Mapster;
 using MediatR;
 

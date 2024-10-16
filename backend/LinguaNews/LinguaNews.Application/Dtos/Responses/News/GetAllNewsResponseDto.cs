@@ -1,4 +1,5 @@
-using BuildingBlocks.Pagination;
+
+using LinguaNews.Application.Pagination;
 
 namespace LinguaNews.Application.Dtos.Responses.News;
 

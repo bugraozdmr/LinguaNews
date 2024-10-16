@@ -2,6 +2,7 @@ namespace LinguaNews.Application.Dtos.Responses.News;
 
 public record GetNewsBySlugResponseDto
 {
+    public Guid Id { get; set; }
     public string Title { get; set; }
     public string Intermediate { get; set; }
     public string Beginner { get; set; }

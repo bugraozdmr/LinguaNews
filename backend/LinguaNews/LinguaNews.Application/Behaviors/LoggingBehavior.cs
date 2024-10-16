@@ -2,7 +2,7 @@ using System.Diagnostics;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace BuildingBlocks.Behaviors;
+namespace LinguaNews.Application.Behaviors;
 
 public class LoggingBehavior<TRequest,TResponse>
     (ILogger<LoggingBehavior<TRequest,TResponse>> logger)

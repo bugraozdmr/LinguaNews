@@ -1,8 +1,8 @@
-using BuildingBlocks.CQRS;
-using BuildingBlocks.Pagination;
+using LinguaNews.Application.CQRS;
 using LinguaNews.Application.Data;
 using LinguaNews.Application.Dtos.Responses.News;
 using LinguaNews.Application.Features.NewsFeature.Queries;
+using LinguaNews.Application.Pagination;
 using Microsoft.EntityFrameworkCore;
 
 namespace LinguaNews.Application.Features.NewsFeature.QueryHandlers;

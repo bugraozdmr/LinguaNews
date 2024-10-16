@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace BuildingBlocks.CQRS;
+namespace LinguaNews.Application.CQRS;
 
 public interface IQueryHandler<in TQuery, TResponse> 
     : IRequestHandler<TQuery, TResponse>

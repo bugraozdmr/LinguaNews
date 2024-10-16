@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace BuildingBlocks.Exceptions.Handler;
+namespace LinguaNews.Application.Exceptions.Handler;
 
 // class library IExceptionHandler alamaz göremez çünkü -- bunun için fluent val. ve fluent.val.asp yüklenmeli böylece gelir lazım :Microsoft.AspNetCore.Diagnostics
 public class CustomExceptionHandler : IExceptionHandler

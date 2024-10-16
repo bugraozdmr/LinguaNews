@@ -1,4 +1,4 @@
-using BuildingBlocks.CQRS;
+using LinguaNews.Application.CQRS;
 using LinguaNews.Application.Data;
 using LinguaNews.Application.Dtos.Responses.News;
 using LinguaNews.Application.Exceptions;
