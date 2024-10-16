@@ -21,6 +21,11 @@ services:
     build:
       context: .
       dockerfile: LinguaNews.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: 8080
+      ## docker iletisim icin asil port verilir
+      ConnectionStrings__Database: "Server=newsdb;Port=5432;Database=LinguaNewsDb;User Id=postgres;Password=postgres"
     depends_on:
       - newsdb
     ports:
