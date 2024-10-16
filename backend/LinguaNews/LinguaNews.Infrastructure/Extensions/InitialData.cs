@@ -9,20 +9,20 @@ internal class InitialData
         {
             Category.Create(name: "Technology",
                 description: "Latest updates and trends in technology, including gadgets, software, and innovation.",
-                image: "path/to/technology-image.jpg"),
+                image: "https://cdn.webrazzi.com/uploads/2023/06/macbook-472.png"),
             Category.Create(
                 name: "Health",
                 description: "News and insights related to health, wellness, fitness, and medical advancements.",
-                image: "path/to/health-image.jpg"),
+                image: "https://www.planstreetinc.com/wp-content/uploads/2021/07/what-is-mental-health-1130x675.png"),
             Category.Create(
                 name: "Sports",
                 description: "Coverage of various sports events, athlete profiles, and sports news.",
-                image: "path/to/sports-image.jpg"
+                image: "https://wallpapers.com/images/hd/1920x1080-hd-sports-61oi85jh19u3ptld.jpg"
             ),
             Category.Create(
                 name: "Entertainment",
                 description: "Updates on movies, music, television, and celebrity news.",
-                image: "path/to/entertainment-image.jpg"
+                image: "https://images.squarespace-cdn.com/content/v1/59e24d3790bade29a3af48e2/1512916279389-6DNTC7SUHEQPYVSQ8V6S/Entertainment+banner+pic.jpg?format=1500w"
             )
         };
 
@@ -34,7 +34,7 @@ internal class InitialData
                 id: null,
                 title: "Understanding the Basics of AI",
                 slug: "understanding-basics-ai",
-                image: "path/to/beginner-ai-image.jpg",
+                image: "https://heliontechnologies.com/wp-content/uploads/2024/04/AI.jpeg",
                 categoryId: 1,
                 beginner:
                 "Artificial Intelligence (AI) is transforming the way we live and work. In this article, we will explore the foundational concepts of AI, including machine learning, natural language processing, and robotics. You will learn about the history of AI and its evolution over the years, along with real-world examples of how AI is currently being applied across various industries. This beginner's guide aims to demystify AI and make it accessible to everyone, regardless of their technical background.",
@@ -47,7 +47,7 @@ internal class InitialData
                 id: null,
                 title: "Exploring Machine Learning Techniques",
                 slug: "exploring-machine-learning-techniques",
-                image: "path/to/intermediate-ml-image.jpg",
+                image: "https://cdn.mos.cms.futurecdn.net/VFLt5vHV7aCoLrLGjP9Qwm-1200-80.jpg",
                 categoryId: 1,
                 beginner:
                 "Machine learning is a subset of AI that focuses on the development of algorithms that allow computers to learn from and make predictions based on data. In this introductory article, we will outline the key principles of machine learning, providing you with a solid understanding of the basics. You will learn about the data-driven approach of machine learning and how it contrasts with traditional programming methods.",
@@ -60,7 +60,7 @@ internal class InitialData
                 id: null,
                 title: "Advanced AI Applications in Business",
                 slug: "advanced-ai-applications-business",
-                image: "path/to/advanced-ai-image.jpg",
+                image: "https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/14202/production/_108243428_gettyimages-871148930.jpg",
                 categoryId: 1,
                 beginner:
                 "Artificial Intelligence is increasingly being adopted by businesses to streamline operations and enhance customer experiences. In this article, we will look at how companies are leveraging AI technologies to optimize their processes and make data-driven decisions. From chatbots in customer service to predictive analytics in marketing, the use of AI is becoming commonplace.",

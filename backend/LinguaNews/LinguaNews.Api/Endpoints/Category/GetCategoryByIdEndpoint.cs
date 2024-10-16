@@ -20,7 +20,7 @@ public class GetCategoryByIdEndpoint : ICarterModule
                 return Results.Ok(result);
             })  
             .WithName("GetCategoryById")  // nameler farkli olmazsa patliyor
-            .Produces<List<GetAllCategoriesResponseDto>>(StatusCodes.Status200OK)
+            .Produces<GetCategoryByIdResponseDto>(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Get Category By Id")
             .WithDescription("Get Category By Id");
