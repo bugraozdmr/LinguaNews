@@ -1,3 +1,6 @@
+Bunlar Kendi notlarım proje ile kısmen ilgili
+--------------------------------------------- (grant)
+
 Önce docker compose kaldırılmalı (sadece postgres)
 
 sonra migration alınmalı
@@ -23,3 +26,6 @@ COPY LinguaNews/ LinguaNews/
 COPY BuildingBlocks/ BuildingBlocks/
 
 artık dosyalarda kopyalanıyor
+
+
+ayrı bir BuildingBlocks'a sahip olunsaydı nasıl halledilirdi anlatıldı proje değiştiği için bu projeyi artık ilgilendirmiyor
