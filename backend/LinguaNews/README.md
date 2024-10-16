@@ -9,7 +9,7 @@ For postmen json file uploaded.
 ## News
 1.
 ##### Get All News
-* `GET /news?pageindex=1&pagesize=10&query=Machine`
+* `GET /news?pageindex=1&pagesize=10&query=Machine&category=1`
 
 2.
 ##### Get News By Slug
