@@ -37,7 +37,11 @@ public class GetAllNewsQueryHandler(IApplicationDbContext dbContext)
                 Slug = n.Slug,
                 Image = n.Image,
                 CategoryId = n.CategoryId,
-                Category = n.Category
+                Category = n.Category,
+                CreatedAt = n.CreatedAt,
+                Intermediate = n.Intermediate,
+                Beginner = n.Beginner,
+                Advanced = n.Advanced
             })
             .ToListAsync(cancellationToken);
 

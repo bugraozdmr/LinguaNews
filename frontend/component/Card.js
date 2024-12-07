@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import AppButton from "./AppButton";
 
-const Card = ({ title, subtitle, image, onPress }) => {
+const Card = ({ title, categoryName, image, createdAt, onPress }) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.container}>
@@ -24,7 +24,16 @@ const Card = ({ title, subtitle, image, onPress }) => {
         />
         <View style={styles.detailsConatiner}>
           <Text style={styles.title}>{title}</Text>
-          <Text style={styles.subtitle}>{subtitle}</Text>
+          <Text style={styles.categoryName}>{categoryName}</Text>
+          <Text style={styles.createdAt}>
+            {new Date(createdAt).toLocaleString("en-GB", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+          </Text>
         </View>
         <AppButton onPress={onPress} title="Full News Link" />
       </View>
@@ -45,9 +54,13 @@ const styles = StyleSheet.create({
   detailsConatiner: {
     padding: 20,
   },
-  subtitle: {
+  categoryName: {
     fontSize: 15,
     marginTop: 5,
+  },
+  createdAt: {
+    fontSize: 12,
+    marginTop: 15,
   },
   title: {
     fontSize: 18,

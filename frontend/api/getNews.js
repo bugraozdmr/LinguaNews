@@ -1,14 +1,23 @@
 import api from "./client";
 
-const apiKey = "3ae5a5ef96654c5990a306756cc00cc5"
-const getNews = () => {
-  return api.get(
-    "https://newsapi.org/v2/top-headlines?country=tr&apiKey=${apikey}"
-  );
+const getNews = async () => {
+  try {
+    const response = await api.get("/news");
+
+    if (response.status === 200 && response.data && response.data.news) {
+      return response;
+    } else {
+      console.log("No news found");
+    }
+  } catch (error) {
+    console.error("API request failed:", error);
+  }
 };
-const searchedNews = (str) => {
-  return api.get(`everything?q=${str}&apiKey=${apikey}`);
+
+const searchedNews = (query) => {
+  return api.get(`/news?query=${query}`);
 };
+
 export default {
   getNews,
   searchedNews,

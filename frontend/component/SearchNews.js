@@ -3,7 +3,6 @@ import { View, StyleSheet, StatusBar, FlatList, Text } from "react-native";
 import AppInput from "./AppInput";
 import news from "../api/getNews";
 import Card from "./Card";
-import { useNavigation } from "@react-navigation/native";
 import LottieView from "lottie-react-native";
 import NoItemFound from "./NoItemFound";
 
@@ -15,9 +14,30 @@ const SearchNews = ({ navigation }) => {
   const [dataLength, setDataLength] = useState(1);
   const getNews = async () => {
     setLoading(true);
+
+    const response = await news.searchedNews(text);
+
+    if (!response) {
+      console.log("ERROR: Response is undefined or null");
+      setLoading(false);
+      return;
+    }
+
+    if (!response.ok) {
+      console.log("ERROR: Response not OK", response);
+      setLoading(false);
+      return;
+    }
+
+    if (!response.data) {
+      console.log("ERROR: No data fetched");
+      setLoading(false);
+      return;
+    }
+
     const { data } = await news.searchedNews(text);
-    setData(data.articles);
-    setDataLength(data.articles.length);
+    setData(response.data.news.data);
+    setDataLength(data.count);
     setLoading(false);
   };
   const handleFetch = () => {
@@ -31,12 +51,13 @@ const SearchNews = ({ navigation }) => {
           data={data}
           refreshing={refreshing}
           onRefreshing={() => getNews()}
-          keyExtractor={(news) => news.publishedAt}
+          keyExtractor={(news) => news.title}
           renderItem={({ item }) => (
             <Card
               title={item.title}
-              subtitle={item.description}
-              image={item.urlToImage}
+              categoryName={item.category.name}
+              createdAt={item.createdAt}
+              image={item.image}
               onPress={() => navigation.navigate("Info", item)}
             />
           )}

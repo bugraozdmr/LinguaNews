@@ -9,11 +9,41 @@ const NewsFeed = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
   const [refresh, onRefresh] = useState(false);
   const getResult = async () => {
-    setLoading(true);
-    const res = await news.getNews();
-    setData(res.data.articles);
-    setLoading(false);
+    try {
+      setLoading(true);
+
+      const response = await news.getNews();
+
+      if (!response) {
+        console.log("ERROR: Response is undefined or null");
+        setLoading(false);
+        return;
+      }
+
+      if (!response.ok) {
+        console.log("ERROR: Response not OK", response);
+        setLoading(false);
+        return;
+      }
+
+      if (!response.data) {
+        console.log("ERROR: No data fetched");
+        setLoading(false);
+        return;
+      }
+
+      setData(response.data.news.data);
+    } catch (error) {
+      console.error("API request failed:", error);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  useEffect(() => {
+    getResult();
+  }, []);
+
   useEffect(() => {
     getResult();
   }, []);
@@ -21,7 +51,7 @@ const NewsFeed = ({ navigation }) => {
     <View style={styles.container}>
       {!loading ? (
         <View>
-          <Text style={styles.text}>Top Headlines - India </Text>
+          <Text style={styles.text}>Recently Added News</Text>
           <FlatList
             onRefresh={() => getResult()}
             refreshing={refresh}
@@ -30,8 +60,9 @@ const NewsFeed = ({ navigation }) => {
             renderItem={({ item }) => (
               <Card
                 title={item.title}
-                subtitle={item.description}
-                image={item.urlToImage}
+                categoryName={item.category.name}
+                createdAt={item.createdAt}
+                image={item.image}
                 onPress={() => navigation.navigate("Info", item)}
               />
             )}

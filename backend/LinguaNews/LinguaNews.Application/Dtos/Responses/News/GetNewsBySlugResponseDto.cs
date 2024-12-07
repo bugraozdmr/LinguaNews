@@ -11,4 +11,6 @@ public record GetNewsBySlugResponseDto
     public string Image { get; set; }
     public int CategoryId { get; set; }
     public Domain.Models.Category Category { get; set; }
+
+    public DateTime? CreatedAt { get; set; }
 }
