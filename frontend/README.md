@@ -1,14 +1,13 @@
-<h1 align="center" id="title">React Native News App</h1>
+<h1 align="center" id="title">LinguaNews : React Native Level Based News App</h1>
 
-<p id="description">A full fledged News app which shows the recent news.</p>
+<p id="description">The LinguaNews frontend is built using React Native with the Expo framework, offering a seamless and efficient development process for cross-platform mobile applications.
 
-<h2>🚀 Demo</h2>
+</p>
 
-[https://expo.dev/@saber\_basha/newsapp](https://expo.dev/@saber_basha/newsapp)
 <h2>🔍 Want to see the Result?</h2>
 
-Perform the following steps, trust me it's very simple to see the result on your phone
-*   Install the expo app from Play or App Store
+Perform the following steps in order to see the result in your phone.
+*   Install the expo app from [Play](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=tr) or [App Store](https://apps.apple.com/tr/app/expo-go/id982107779?l=tr) or [APK](https://apkpure.com/tr/expo-go/host.exp.exponent)
 *   Open the expo app and scan the below QR code
 *   And that's it !...
 <img src="https://qr.expo.dev/expo-go?owner=saber_basha&slug=newsapp&releaseChannel=default&host=exp.host"  height="200/">  
@@ -17,28 +16,20 @@ Perform the following steps, trust me it's very simple to see the result on your
 Here're some of the project's best features:
 
 *   Shows recent and real time news
-*   Universal News Search
+*   News Search
 *   Clean UI
-*   User can share the news via What's App Message and Email
 
 <h2>🛠️ Installation Steps:</h2>
 
-<p>1. Install Expo CLI</p>
+```console
+# change the working directory frontend
+$ cd frontend
 
-```sh
-npm i -g expo-cli
-```
+# install packages
+$ npm install
 
-<p>2. Clone this project</p>
-
-```sh
-git clone git@github.com:zero7zero5/React-Native-News-App.git
-```
-
-<p>3. Run this project</p>
-
-```sh
-npm start
+# run the project
+$ npx expo start
 ```
 
   
@@ -49,6 +40,6 @@ Technologies used in the project:
 
 *   React Native
 *   Expo
-*   News API
+*   LinguaNews API
 *   Lottie for Animations
 *   React Navigation
