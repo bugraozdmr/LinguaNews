@@ -7,56 +7,71 @@ import LottieView from "lottie-react-native";
 const NewsFeed = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [refresh, onRefresh] = useState(false);
-  const getResult = async () => {
+  const [refreshing, setRefreshing] = useState(false);
+  const [page, setPage] = useState(1);
+  const [hasMoreData, setHasMoreData] = useState(true);
+
+  const getResult = async (pageNumber = 1) => {
     try {
       setLoading(true);
 
-      const response = await news.getNews();
+      const response = await news.getNews(pageNumber);
+      console.log(JSON.stringify(response, null, 2));
 
-      if (!response) {
-        console.log("ERROR: Response is undefined or null");
-        setLoading(false);
-        return;
+      if (response?.data?.news?.data) {
+        const newData = response.data.news.data;
+        const totalItemCount = response.data.news.count;
+
+        // Yeni verileri mevcut verilerin sonuna ekleyelim
+        setData((prevData) => (pageNumber === 1 ? newData : [...prevData, ...newData]));
+
+        // Daha fazla veri olup olmadığını kontrol edelim
+        setHasMoreData(data.length + newData.length < totalItemCount);
+      } else {
+        console.error("API yanıtı beklenen yapıda değil:", response);
       }
-
-      if (!response.ok) {
-        console.log("ERROR: Response not OK", response);
-        setLoading(false);
-        return;
-      }
-
-      if (!response.data) {
-        console.log("ERROR: No data fetched");
-        setLoading(false);
-        return;
-      }
-
-      setData(response.data.news.data);
     } catch (error) {
       console.error("API request failed:", error);
     } finally {
       setLoading(false);
+      setRefreshing(false);
     }
   };
 
-  useEffect(() => {
-    getResult();
-  }, []);
 
   useEffect(() => {
-    getResult();
-  }, []);
+    getResult(page);
+  }, [page]);
+
+  const handleLoadMore = () => {
+    if (hasMoreData && !loading) {
+      setPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  const handleRefresh = () => {
+    setRefreshing(true);
+    setPage(1); // Sayfayı sıfırla
+    setData([]); // Eski verileri temizle
+  };
+
+  
   return (
     <View style={styles.container}>
-      {!loading ? (
+      {loading && page === 1 ? ( // İlk yüklemede animasyon göster
+        <View style={styles.container}>
+          <LottieView
+            loop
+            autoPlay
+            source={require("../animations/96231-loading-orange-animation.json")}
+          />
+        </View>
+      ) : (
         <View>
           <Text style={styles.text}>Recently Added News</Text>
           <FlatList
-            onRefresh={() => getResult()}
-            refreshing={refresh}
             data={data}
-            keyExtractor={(news) => news.publishedAt + news.title}
+            keyExtractor={(item) => item.slug} // Benzersiz anahtar olarak slug kullan
             renderItem={({ item }) => (
               <Card
                 title={item.title}
@@ -66,20 +81,17 @@ const NewsFeed = ({ navigation }) => {
                 onPress={() => navigation.navigate("Info", item)}
               />
             )}
-          />
-        </View>
-      ) : (
-        <View style={styles.container}>
-          <LottieView
-            loop
-            autoPlay
-            source={require("../animations/96231-loading-orange-animation.json")}
+            onEndReached={handleLoadMore} // Sayfa sonuna geldiğinde
+            onEndReachedThreshold={0.5} // Yükleme başlama eşiği
+            refreshing={refreshing}
+            onRefresh={handleRefresh} // Listeyi yenile
           />
         </View>
       )}
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     paddingTop: 50,

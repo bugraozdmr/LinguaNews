@@ -1,8 +1,8 @@
 import api from "./client";
 
-const getNews = async () => {
+const getNews = async (pageIndex = 1, pageSize = 10, query = "") => {
   try {
-    const response = await api.get("/news");
+    const response = await api.get(`/news?pageindex=${pageIndex}&pagesize=${pageSize}&query=${query}`);
 
     if (response.status === 200 && response.data && response.data.news) {
       return response;

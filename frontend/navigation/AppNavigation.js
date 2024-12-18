@@ -6,6 +6,7 @@ import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
 import { myTheme } from "./navigationColor";
 import MyStack from "./NewsInfoNavigator";
 import NewsSearchNavigation from "./NewsSearchNavigation";
+import MyNewsNavogation from "./MyNewsNavigation";
 import About from "../component/About";
 const Tab = createBottomTabNavigator();
 
@@ -37,8 +38,18 @@ const AppNavigator = () => {
               <MaterialCommunityIcons color={color} size={30} name="magnify" />
             ),
           }}
-          name="serach"
+          name="search"
           component={NewsSearchNavigation}
+        />
+        <Tab.Screen
+          options={{
+            title: "My News",
+            tabBarIcon: ({ size, color }) => (
+              <MaterialCommunityIcons color={color} size={30} name="magnify" />
+            ),
+          }}
+          name="readData"
+          component={MyNewsNavogation}
         />
         <Tab.Screen
           options={{

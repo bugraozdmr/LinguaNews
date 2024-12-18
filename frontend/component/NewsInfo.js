@@ -6,7 +6,10 @@ import {
   StyleSheet,
   Text,
   View,
+  Button,
+  TouchableOpacity,
 } from "react-native";
+import Checkbox from "expo-checkbox";
 import AppButton from "./AppButton";
 import Icon from "./Icon";
 
@@ -45,62 +48,53 @@ const ListingDetails = ({ route }) => {
 
           <Text style={styles.subtitle}>{getLevelText()}</Text>
 
-          <View style={styles.buttonContainer}>
-            <AppButton
+          {/* <View style={styles.buttonContainer}>
+            <Button
               style={styles.button}
               title="Beginner"
               onPress={() => setLevel("beginner")}
             />
-            <AppButton
+            <Button
               style={styles.button}
               title="Intermediate"
               onPress={() => setLevel("intermediate")}
             />
-            <AppButton
+            <Button
               style={styles.button}
               title="Advanced"
               onPress={() => setLevel("advanced")}
             />
-          </View>
+          </View> */}
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setLevel("beginner")}
+            >
+              <Text style={styles.buttonText}>Beginner</Text>
+            </TouchableOpacity>
 
-          <View style={styles.shareContainer}>
-            <View style={styles.iconContainer}>
-              <Icon
-                onPress={() =>
-                  Linking.openURL(`whatsapp://send?text=${route.params.slug}`)
-                }
-                name={"whatsapp"}
-                size={40}
-                backgroundColor="#00cc00"
-              />
-              <Text style={styles.logoText}>Whats App</Text>
-            </View>
-            <View style={styles.iconContainer}>
-              <Icon
-                onPress={() => Linking.openURL(`sms:?body=${route.params.url}`)}
-                name={"message"}
-                size={40}
-                backgroundColor="gold"
-              />
-              <Text style={styles.logoText}>Message</Text>
-            </View>
-            {/* TODO */}
-            <View style={styles.iconContainer}>
-              <Icon
-                onPress={() =>
-                  Linking.openURL(`mailto:?&body=${route.params.url}`)
-                }
-                name={"email"}
-                size={40}
-                backgroundColor="#3399ff"
-              />
-              <Text style={styles.logoText}>Email</Text>
-            </View>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setLevel("intermediate")}
+            >
+              <Text style={styles.buttonText}>Intermediate</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setLevel("advanced")}
+            >
+              <Text style={styles.buttonText}>Advanced</Text>
+            </TouchableOpacity>
           </View>
-          <AppButton
-            onPress={() => Linking.openURL(route.params.url)}
-            title={"Click here to read full news"}
-          />
+          <View style={styles.section}>
+            <Checkbox
+              style={styles.checkbox}
+              value={isChecked}
+              onValueChange={setChecked}
+            />
+            <Text style={styles.paragraph}>Normal checkbox</Text>
+          </View>
         </View>
       </ScrollView>
     </View>
@@ -116,6 +110,19 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingBottom: 50,
   },
+  button: {
+    width: "32%",
+    borderRadius: 20,
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+    backgroundColor: "#fc5c65",
+  },
+  buttonText: {
+    fontSize: 15,
+    color: "white",
+  },
   detailsContainer: { padding: 20 },
   buttonContainer: {
     flexDirection: "row",
@@ -123,26 +130,21 @@ const styles = StyleSheet.create({
     marginVertical: 15,
     width: "100%",
   },
-  button: {
-    // TODO
-    flex: 1,
-    marginHorizontal: 1,
-  },
-  iconContainer: {
+  buttonContainer: {
     alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#ffffff",
+    borderRadius: 5,
+    marginHorizontal: 0,
+    padding: 15,
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
+
   title: {
     fontSize: 20,
     marginBottom: 10,
     color: "#FF595A",
     fontWeight: "bold",
-  },
-  shareContainer: {
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    marginVertical: 20,
   },
   subtitle: {
     fontSize: 17,
