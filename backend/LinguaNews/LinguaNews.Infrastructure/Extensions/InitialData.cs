@@ -73,7 +73,7 @@ internal class InitialData
                 id: null,
                 title: "The Future of Quantum Computing",
                 slug: "future-quantum-computing",
-                image: "https://example.com/quantum-computing.jpeg",
+                image: "https://itfix.org.uk/wp-content/uploads/2024/02/Quantum_Computing_and_the_Future_of_Operating_Systems.webp",
                 categoryId: 1,
                 beginner:
                 "Quantum computing is an emerging field that promises to revolutionize computing as we know it. At its core, quantum computing leverages the principles of quantum mechanics to perform computations that are impossible for traditional computers. This article will introduce you to the basics of quantum computing, its potential applications, and why it is a crucial area of research.",
@@ -86,7 +86,7 @@ internal class InitialData
                 id: null,
                 title: "The Rise of Telemedicine",
                 slug: "rise-telemedicine",
-                image: "https://example.com/telemedicine.jpeg",
+                image: "https://post.healthline.com/wp-content/uploads/2020/10/telemedicine-psychotherapy-session-from-bed-1296x728-header.jpg",
                 categoryId: 2,
                 beginner:
                 "Telemedicine has emerged as a critical part of healthcare, allowing patients to consult with doctors remotely. In this article, we will explain the basics of telemedicine, including the technology behind virtual consultations and its growing role in healthcare, especially during the pandemic.",
@@ -99,7 +99,7 @@ internal class InitialData
                 id: null,
                 title: "The Evolution of eSports",
                 slug: "evolution-esports",
-                image: "https://example.com/esports.jpeg",
+                image: "https://worldfootballsummit.com/wp-content/uploads/2022/08/esports.jpeg",
                 categoryId: 3,
                 beginner:
                 "eSports, or competitive video gaming, has become a multi-billion dollar industry. This article will provide an introduction to eSports, its history, and how it has grown from small competitions to international tournaments with millions of viewers and participants.",
@@ -112,7 +112,7 @@ internal class InitialData
                 id: null,
                 title: "Artificial Intelligence in Healthcare",
                 slug: "ai-healthcare",
-                image: "https://example.com/ai-healthcare.jpeg",
+                image: "https://successive.cloud/wp-content/uploads/2023/03/AI-in-Healthcare-768x403.jpg",
                 categoryId: 2,
                 beginner:
                 "Artificial Intelligence (AI) is transforming healthcare by improving diagnostics, personalizing treatment plans, and automating administrative tasks. This beginner’s guide will introduce you to AI's applications in healthcare and how it is revolutionizing patient care and medical research.",
@@ -125,7 +125,7 @@ internal class InitialData
                 id: null,
                 title: "Sustainable Energy: The Future of Power",
                 slug: "sustainable-energy-future",
-                image: "https://example.com/sustainable-energy.jpeg",
+                image: "https://media.licdn.com/dms/image/v2/D4D12AQFe2OihdSSmag/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1685715736134?e=2147483647&v=beta&t=zFRShPQGJDPTRn1j_T37vfUQisF0UcsNBFy092xSGwI",
                 categoryId: 1,
                 beginner:
                 "Sustainable energy refers to energy that is renewable and has a low environmental impact. In this article, we’ll explain the basics of sustainable energy sources like solar, wind, and hydro power, and why they are crucial for the future of our planet.",
@@ -138,7 +138,7 @@ internal class InitialData
                 id: null,
                 title: "The Impact of Social Media on Mental Health",
                 slug: "impact-social-media-mental-health",
-                image: "https://example.com/social-media-mental-health.jpeg",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPEelbILv96jKNT_EwAcRFlwF2RtPniXLQg&s",
                 categoryId: 2,
                 beginner:
                 "Social media has become an integral part of daily life, but its effects on mental health are still being studied. In this article, we will look at the basics of how social media impacts mental well-being and what we can do to mitigate negative effects.",
@@ -151,7 +151,7 @@ internal class InitialData
                 id: null,
                 title: "The Power of AI in the Entertainment Industry",
                 slug: "ai-entertainment-industry",
-                image: "https://example.com/ai-entertainment.jpeg",
+                image: "https://miro.medium.com/max/1200/1*9oBjaymF91UCgKMZUO_vdQ.jpeg",
                 categoryId: 4,
                 beginner:
                 "Artificial Intelligence is making waves in the entertainment industry, from generating content to enhancing viewer experiences. This article will introduce you to AI's role in movies, music, gaming, and more.",
@@ -164,7 +164,7 @@ internal class InitialData
                 id: null,
                 title: "The Importance of Cybersecurity in the Digital Age",
                 slug: "importance-cybersecurity-digital-age",
-                image: "https://example.com/cybersecurity.jpeg",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8bI7mvsj2NVg0TAyIdi1KtS3jbR0fm3tsYg&s",
                 categoryId: 1,
                 beginner:
                 "As the world becomes increasingly digital, cybersecurity has never been more important. This article will introduce you to the basics of cybersecurity, why it is essential, and the key concepts to know to protect your personal data and privacy online.",
@@ -177,7 +177,7 @@ internal class InitialData
                 id: null,
                 title: "The Evolution of Streaming Services",
                 slug: "evolution-streaming-services",
-                image: "https://example.com/streaming-services.jpeg",
+                image: "https://miro.medium.com/v2/resize:fit:948/1*ORhusgs-F-hijlHIswaEvQ.jpeg",
                 categoryId: 4,
                 beginner:
                 "Streaming services like Netflix, Spotify, and Disney+ have transformed the way we consume media. This article will provide an introduction to streaming services, how they work, and why they have become so popular in recent years.",
@@ -190,7 +190,7 @@ internal class InitialData
                 id: null,
                 title: "Exploring the Future of Autonomous Vehicles",
                 slug: "future-autonomous-vehicles",
-                image: "https://example.com/autonomous-vehicles.jpeg",
+                image: "https://gadgets-post.s3.amazonaws.com/wp-content/uploads/2023/10/11173924/Exploring-the-Promise-of-Autonomous-Vehicles.jpg",
                 categoryId: 1,
                 beginner:
                 "Autonomous vehicles, or self-driving cars, are one of the most exciting developments in the automotive industry. This article will introduce you to the concept of autonomous vehicles, how they work, and the potential benefits they offer to society.",
@@ -203,7 +203,7 @@ internal class InitialData
                 id: null,
                 title: "The Role of Biotechnology in Modern Medicine",
                 slug: "role-biotechnology-medicine",
-                image: "https://example.com/biotechnology-medicine.jpeg",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpohfZu-OD5l_5tjzge-disxr10fsNCcBw6Q&s",
                 categoryId: 2,
                 beginner:
                 "Biotechnology has revolutionized modern medicine, enabling breakthroughs in genetic research, drug development, and personalized treatment. This article will introduce you to the basics of biotechnology and its applications in medicine.",
