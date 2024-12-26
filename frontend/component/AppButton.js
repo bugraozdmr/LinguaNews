@@ -29,10 +29,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 10,
+    paddingHorizontal: 10, // Yatay padding eklendi
   },
   text: {
     fontSize: 15,
     color: "white",
+    textAlign: "center", // Yazıyı ortalama
   },
 });
 export default AppButton;

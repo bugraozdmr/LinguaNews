@@ -8,31 +8,27 @@ const NewsFeed = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [refresh, onRefresh] = useState(false);
-  const getResult = async () => {
+  const [pageIndex, setPageIndex] = useState(0); // Başlangıç sayfa indeksi
+  const [pageSize] = useState(1); // Sayfa başına haber sayısı
+  const [totalPages, setTotalPages] = useState(1); // Toplam sayfa sayısı
+
+  const getResult = async (page = 0) => {
     try {
       setLoading(true);
 
-      const response = await news.getNews();
+      const response = await news.getNews({ pageIndex: page, pageSize });
 
-      if (!response) {
-        console.log("ERROR: Response is undefined or null");
+      if (!response || !response.ok || !response.data) {
+        console.log("ERROR: API çağrısı başarısız oldu");
         setLoading(false);
         return;
       }
 
-      if (!response.ok) {
-        console.log("ERROR: Response not OK", response);
-        setLoading(false);
-        return;
-      }
+      const fetchedData = response.data.news.data; // Gelen haber verisi
+      const totalPagesFromApi = response.data.news.totalPages; // Toplam sayfa sayısı
 
-      if (!response.data) {
-        console.log("ERROR: No data fetched");
-        setLoading(false);
-        return;
-      }
-
-      setData(response.data.news.data);
+      setData((prevData) => (page === 0 ? fetchedData : [...prevData, ...fetchedData]));
+      setTotalPages(totalPagesFromApi);
     } catch (error) {
       console.error("API request failed:", error);
     } finally {
@@ -41,19 +37,25 @@ const NewsFeed = ({ navigation }) => {
   };
 
   useEffect(() => {
-    getResult();
-  }, []);
+    getResult(pageIndex);
+  }, [pageIndex]);
 
-  useEffect(() => {
-    getResult();
-  }, []);
+  const loadMoreData = () => {
+    if (!loading && pageIndex + 1 < totalPages) {
+      setPageIndex((prevPage) => prevPage + 1);
+    }
+  };
+
   return (
     <View style={styles.container}>
       {!loading ? (
         <View>
           <Text style={styles.text}>Recently Added News</Text>
           <FlatList
-            onRefresh={() => getResult()}
+            onRefresh={() => {
+              setPageIndex(0);
+              getResult(0);
+            }}
             refreshing={refresh}
             data={data}
             keyExtractor={(news) => news.publishedAt + news.title}
@@ -66,6 +68,11 @@ const NewsFeed = ({ navigation }) => {
                 onPress={() => navigation.navigate("Info", item)}
               />
             )}
+            onEndReached={loadMoreData}
+            onEndReachedThreshold={0.5} // Alt sınıra yaklaşıldığında daha fazla veri getirir
+            ListFooterComponent={
+              loading && <LottieView source={require("../animations/96231-loading-orange-animation.json")} autoPlay loop />
+            }
           />
         </View>
       ) : (
@@ -80,6 +87,7 @@ const NewsFeed = ({ navigation }) => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     paddingTop: 50,
@@ -96,4 +104,5 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+
 export default NewsFeed;

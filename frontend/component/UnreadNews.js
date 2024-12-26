@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, FlatList, Image } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const SavedNewsList = () => {
+const UnreadNews = () => {
   const [savedNews, setSavedNews] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -86,4 +86,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SavedNewsList;
+export default UnreadNews;

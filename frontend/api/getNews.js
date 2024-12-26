@@ -1,16 +1,18 @@
 import api from "./client";
 
-const getNews = async () => {
+const getNews = async ({ pageIndex = 0, pageSize = 10 }) => {
   try {
-    const response = await api.get("/news");
+    const response = await api.get(`/news`, {
+      params: {
+        pageIndex,
+        pageSize,
+      },
+    });
 
-    if (response.status === 200 && response.data && response.data.news) {
-      return response;
-    } else {
-      console.log("No news found");
-    }
+    return response; // API yanıtını doğrudan döndürüyoruz
   } catch (error) {
-    console.error("API request failed:", error);
+    console.error("getNews API çağrısı başarısız oldu:", error);
+    return { ok: false, data: null }; // Hata durumunda standart bir yanıt döndür
   }
 };
 

@@ -6,7 +6,9 @@ import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
 import { myTheme } from "./navigationColor";
 import MyStack from "./NewsInfoNavigator";
 import NewsSearchNavigation from "./NewsSearchNavigation";
-import About from "../component/About";
+import ReadNewsScreen from "../component/About";
+import UnreadNewsScreen from "../component/UnreadNews"; // Yeni ekranı import ettik
+
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
@@ -37,21 +39,32 @@ const AppNavigator = () => {
               <MaterialCommunityIcons color={color} size={30} name="magnify" />
             ),
           }}
-          name="serach"
+          name="search"
           component={NewsSearchNavigation}
         />
         <Tab.Screen
           options={{
-            title: "About Developer",
+            title: "Okunmus Haberler",
             tabBarIcon: ({ size, color }) => (
               <MaterialCommunityIcons color={color} size={30} name="face-man" />
             ),
           }}
-          name="about"
-          component={About}
+          name="readNews"
+          component={ReadNewsScreen}
+        />
+        <Tab.Screen
+          options={{
+            title: "Henüz Okunmamış Haberler", // Yeni sekme ismi
+            tabBarIcon: ({ size, color }) => (
+              <MaterialCommunityIcons color={color} size={30} name="bookmark" />
+            ),
+          }}
+          name="unreadNews" // Yeni sekme ismi
+          component={UnreadNewsScreen} // Yeni ekranı belirtelim
         />
       </Tab.Navigator>
     </NavigationContainer>
   );
 };
+
 export default AppNavigator;
