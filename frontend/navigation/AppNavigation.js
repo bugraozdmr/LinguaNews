@@ -44,7 +44,7 @@ const AppNavigator = () => {
         />
         <Tab.Screen
           options={{
-            title: "Okunmus Haberler",
+            title: "News Archive",
             tabBarIcon: ({ size, color }) => (
               <MaterialCommunityIcons color={color} size={30} name="face-man" />
             ),
@@ -54,7 +54,7 @@ const AppNavigator = () => {
         />
         <Tab.Screen
           options={{
-            title: "Henüz Okunmamış Haberler", // Yeni sekme ismi
+            title: "Reading List", // Yeni sekme ismi
             tabBarIcon: ({ size, color }) => (
               <MaterialCommunityIcons color={color} size={30} name="bookmark" />
             ),

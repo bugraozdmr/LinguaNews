@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, FlatList, Image } from "react-native";
+import { View, FlatList, StyleSheet, Text } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import ListCard from "./ListCard"; // Card component import
 
 const SavedNewsList = () => {
   const [savedNews, setSavedNews] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
 
-  // Kaydedilen haberleri AsyncStorage'den al
+  // Retrieve saved news from AsyncStorage
   const getSavedNews = async () => {
     try {
-      const storedNews = await AsyncStorage.getItem("readNews");
+      const storedNews = await AsyncStorage.getItem("readNews"); // Use "readNews" instead of "savedNews"
       const newsList = storedNews ? JSON.parse(storedNews) : [];
-      setSavedNews(newsList); // Listeyi güncelle
+      setSavedNews(newsList); // Update the list
     } catch (error) {
-      console.error("Kaydedilen haberler alınırken hata oluştu:", error);
+      console.error("Error retrieving News Archive:", error);
     }
   };
 
-  // Sayfayı yenileme işlemi
+  // Refresh the page
   const onRefresh = async () => {
     setRefreshing(true);
-    await getSavedNews(); // Haberleri yeniden al
-    setRefreshing(false); // Yenileme durumu sonlandır
+    await getSavedNews(); // Fetch the news again
+    setRefreshing(false); // End the refreshing state
   };
 
   useEffect(() => {
@@ -30,23 +31,22 @@ const SavedNewsList = () => {
 
   return (
     <View style={styles.container}>
+      {/* Title */}
+      <Text style={styles.header}>News Archive</Text>
+
       <FlatList
         data={savedNews}
         keyExtractor={(item) => item.title}
         renderItem={({ item }) => (
-          <View style={styles.newsItem}>
-            <Image source={{ uri: item.image }} style={styles.newsImage} />
-            <Text style={styles.newsTitle}>{item.title}</Text>
-            <Text style={styles.newsDate}>
-              {new Date(item.createdAt).toLocaleString("en-GB", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-            </Text>
-          </View>
+          <ListCard
+            title={item.title}
+            categoryName={item.categoryName}
+            image={item.image}
+            createdAt={item.createdAt}
+            onPress={() => {}}
+          />
         )}
-        // Pull to Refresh işlevselliği
+        // Pull to Refresh functionality
         refreshing={refreshing}
         onRefresh={onRefresh}
       />
@@ -56,33 +56,18 @@ const SavedNewsList = () => {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 50,
     flex: 1,
-    padding: 20,
+    backgroundColor: "#ffcccc",
+    padding: 10,
+    paddingBottom: 50,
   },
-  newsItem: {
-    padding: 15,
-    marginBottom: 10,
-    borderRadius: 10,
-    backgroundColor: "#f4f4f4",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 5,
-  },
-  newsImage: {
-    width: "100%",
-    height: 200,
-    borderRadius: 10,
-  },
-  newsTitle: {
-    fontSize: 18,
+  header: {
+    fontSize: 24,
     fontWeight: "bold",
-    color: "#333",
-  },
-  newsDate: {
-    fontSize: 12,
-    color: "#888",
+    color: "#FF595A", // Title color
+    marginBottom: 20,
+    textAlign: "center", // Centered title
   },
 });
 
